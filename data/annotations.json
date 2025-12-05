@@ -1,0 +1,343 @@
+{
+  "efec5d4e9c13": [
+    {
+      "id": 1,
+      "start": 791,
+      "end": 798,
+      "text": "history",
+      "label": "DIAGNOSIS"
+    },
+    {
+      "id": 2,
+      "start": 956,
+      "end": 963,
+      "text": "voiding",
+      "label": "MEDICATION"
+    }
+  ],
+  "e814030955319068": [
+    {
+      "start": 493,
+      "end": 504,
+      "text": "his\r\nongoing",
+      "label": "Test"
+    },
+    {
+      "start": 2975,
+      "end": 2986,
+      "text": "medications",
+      "label": "DIAGNOSIS"
+    },
+    {
+      "start": 3437,
+      "end": 3443,
+      "text": "needed",
+      "label": "SYMPTOM"
+    },
+    {
+      "start": 3455,
+      "end": 3465,
+      "text": "irritation",
+      "label": "SYMPTOM"
+    }
+  ],
+  "a2081d329e4ed257": [
+    {
+      "start": 74,
+      "end": 83,
+      "text": "Discharge",
+      "label": "DIAGNOSIS"
+    },
+    {
+      "start": 74,
+      "end": 83,
+      "text": "Discharge",
+      "label": "DIAGNOSIS"
+    },
+    {
+      "start": 3626,
+      "end": 3638,
+      "text": "constipation",
+      "label": "Test"
+    },
+    {
+      "start": 1585,
+      "end": 1592,
+      "text": "Medical",
+      "label": "SYMPTOM"
+    }
+  ],
+  "9867ffd81b3d7c08": [
+    {
+      "start": 3128,
+      "end": 3140,
+      "text": "\r\nantibiotics",
+      "label": "DIAGNOSIS"
+    }
+  ],
+  "935b26fa74f871e7": [
+    {
+      "start": 732,
+      "end": 745,
+      "text": "Indeed\r\nrectal",
+      "label": "DIAGNOSIS"
+    }
+  ],
+  "2c77487ba6068190": [
+    {
+      "start": 2624,
+      "end": 2634,
+      "text": "continuous",
+      "label": "DIAGNOSIS"
+    },
+    {
+      "start": 40,
+      "end": 49,
+      "text": "Admission",
+      "label": "Operate"
+    },
+    {
+      "start": 253,
+      "end": 268,
+      "text": "Prostate cancer",
+      "label": "DIAGNOSIS"
+    }
+  ],
+  "0e2b5c0a75f28e02": [
+    {
+      "start": 767,
+      "end": 774,
+      "text": "outside",
+      "label": "PROCEDURE"
+    },
+    {
+      "start": 2766,
+      "end": 2775,
+      "text": "following",
+      "label": "Test"
+    }
+  ],
+  "Data.txt": [
+    {
+      "start": 2052,
+      "end": 2064,
+      "text": " grandfather",
+      "label": "MEDICATION",
+      "rank": ""
+    },
+    {
+      "start": 2053,
+      "end": 2064,
+      "text": "grandfather",
+      "label": "DIAGNOSIS",
+      "rank": ""
+    }
+  ],
+  "cancer.report4.txt": [
+    {
+      "start": 485,
+      "end": 497,
+      "text": "bendamustine",
+      "label": "DIAGNOSIS"
+    },
+    {
+      "start": 1322,
+      "end": 1336,
+      "text": "hypothyroidism",
+      "label": "PROCEDURE",
+      "rank": ""
+    },
+    {
+      "start": 1322,
+      "end": 1336,
+      "text": "hypothyroidism",
+      "label": "PROCEDURE",
+      "rank": "1"
+    },
+    {
+      "start": 2532,
+      "end": 2540,
+      "text": "Rapamune",
+      "label": "SYMPTOM",
+      "rank": ""
+    },
+    {
+      "start": 150,
+      "end": 159,
+      "text": "gentleman",
+      "label": "Test",
+      "rank": "2"
+    }
+  ],
+  "cancer.report2.txt": [
+    {
+      "start": 6,
+      "end": 13,
+      "text": "History",
+      "label": "MEDICATION",
+      "rank": ""
+    },
+    {
+      "start": 798,
+      "end": 806,
+      "text": "afebrile",
+      "label": "DIAGNOSIS",
+      "rank": ""
+    },
+    {
+      "start": 1308,
+      "end": 1316,
+      "text": "Surgical",
+      "label": "Test",
+      "rank": ""
+    },
+    {
+      "start": 3229,
+      "end": 3238,
+      "text": "Decreased",
+      "label": "DIAGNOSIS",
+      "rank": ""
+    },
+    {
+      "start": 3339,
+      "end": 3346,
+      "text": "murmurs",
+      "label": "SYMPTOM",
+      "rank": ""
+    },
+    {
+      "start": 3404,
+      "end": 3415,
+      "text": "Normoactive",
+      "label": "DIAGNOSIS",
+      "rank": ""
+    }
+  ],
+  "cancer.report3.txt": [
+    {
+      "start": 3781,
+      "end": 3792,
+      "text": "prehydrated",
+      "label": "DIAGNOSIS",
+      "rank": "1"
+    },
+    {
+      "start": 4464,
+      "end": 4472,
+      "text": "afebrile",
+      "label": "MEDICATION",
+      "rank": "2"
+    },
+    {
+      "start": 5055,
+      "end": 5066,
+      "text": "medications",
+      "label": "SYMPTOM",
+      "rank": "3"
+    },
+    {
+      "start": 225,
+      "end": 234,
+      "text": "admission",
+      "label": "PROCEDURE",
+      "rank": "4"
+    },
+    {
+      "start": 5732,
+      "end": 5741,
+      "text": "shortness",
+      "label": "Test",
+      "rank": "99"
+    }
+  ],
+  "manual_text.txt": [
+    {
+      "start": 2570,
+      "end": 2581,
+      "text": "medications",
+      "label": "PROCEDURE",
+      "rank": "99"
+    },
+    {
+      "start": 2570,
+      "end": 2581,
+      "text": "medications",
+      "label": "DIAGNOSIS",
+      "rank": ""
+    }
+  ],
+  "cancer.report1.txt": [
+    {
+      "start": 4122,
+      "end": 4130,
+      "text": "platelet",
+      "label": "DIAGNOSIS",
+      "rank": "1"
+    },
+    {
+      "start": 4598,
+      "end": 4607,
+      "text": "tolerated",
+      "label": "MEDICATION",
+      "rank": "2"
+    },
+    {
+      "start": 2333,
+      "end": 2344,
+      "text": "respiratory",
+      "label": "SYMPTOM",
+      "rank": "3"
+    },
+    {
+      "start": 85,
+      "end": 95,
+      "text": "maintenanc",
+      "label": "SYMPTOM",
+      "rank": "3"
+    },
+    {
+      "start": 1297,
+      "end": 1301,
+      "text": "CD10",
+      "label": "DIAGNOSIS",
+      "rank": ""
+    },
+    {
+      "start": 4598,
+      "end": 4607,
+      "text": "tolerated",
+      "label": "DIAGNOSIS",
+      "rank": ""
+    },
+    {
+      "start": 4577,
+      "end": 4589,
+      "text": "asymptomatic",
+      "label": "DIAGNOSIS",
+      "rank": ""
+    },
+    {
+      "start": 4577,
+      "end": 4589,
+      "text": "asymptomatic",
+      "label": "MEDICATION",
+      "rank": ""
+    }
+  ],
+  "cancer.report2.txt_annotated.txt": [
+    {
+      "start": 860,
+      "end": 868,
+      "text": "Pharmacy",
+      "label": "MEDICATION",
+      "rank": ""
+    },
+    {
+      "start": 1215,
+      "end": 1223,
+      "text": "lymphoma",
+      "label": "Test",
+      "rank": ""
+    }
+  ]
+}
