@@ -1,0 +1,25 @@
+{
+  "cancer.report1.txt": [
+    {
+      "start": 1806,
+      "end": 1814,
+      "text": "received",
+      "label": "Disease",
+      "rank": "2"
+    },
+    {
+      "start": 2170,
+      "end": 2183,
+      "text": "multivitamins",
+      "label": "test",
+      "rank": ""
+    },
+    {
+      "start": 2251,
+      "end": 2268,
+      "text": "ow-grade lymphoma",
+      "label": "test",
+      "rank": ""
+    }
+  ]
+}
