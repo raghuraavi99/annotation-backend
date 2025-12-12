@@ -2,7 +2,7 @@ import os
 import json
 import zipfile
 import uuid
-import hashlib
+import bcrypt
 from typing import Optional, List, Dict, Any
 from fastapi import FastAPI, UploadFile, File, Form, Depends, HTTPException, Header
 from fastapi.responses import JSONResponse, FileResponse
@@ -54,10 +54,6 @@ def make_preview(text: str, n: int = 120) -> str:
     text = " ".join(text.split())
     return text[:n] + ("..." if len(text) > n else "")
 
-def hash_password(password: str, salt: str) -> str:
-    return hashlib.sha256((salt + password).encode("utf-8")).hexdigest()
-
-
 def get_user_paths(username: str) -> Dict[str, str]:
     base = os.path.join(DATA_DIR, username)
     os.makedirs(base, exist_ok=True)
@@ -85,6 +81,33 @@ def get_current_user(authorization: Optional[str] = Header(None)) -> str:
         raise HTTPException(status_code=401, detail="Invalid token")
     return username
 
+def load_users() -> Dict[str, Dict[str, str]]:
+    data = load_json(USERS_FILE)
+    if isinstance(data, dict):
+        return data
+    return {}
+
+
+def save_users(users: Dict[str, Dict[str, str]]):
+    save_json(USERS_FILE, users)
+
+
+def hash_password(password: str) -> str:
+    hashed = bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt())
+    return hashed.decode("utf-8")
+
+
+def verify_password(password: str, hashed: str) -> bool:
+    if not hashed:
+        return False
+    try:
+        return bcrypt.checkpw(password.encode("utf-8"), hashed.encode("utf-8"))
+    except ValueError:
+        return False
+
+
+users_db: Dict[str, Dict[str, str]] = load_users()
+
 # --------------------------------------------------------
 # Auth endpoints
 # --------------------------------------------------------
@@ -96,16 +119,11 @@ def register_user(payload: AuthRequest):
     if not username or not password:
         return JSONResponse({"error": "Username and password required"}, status_code=400)
 
-    users = load_json(USERS_FILE)
-    if username in users:
+    if username in users_db:
         return JSONResponse({"error": "Username already exists"}, status_code=400)
 
-    salt = uuid.uuid4().hex
-    users[username] = {
-        "salt": salt,
-        "password": hash_password(password, salt)
-    }
-    save_json(USERS_FILE, users)
+    users_db[username] = {"password": hash_password(password)}
+    save_users(users_db)
     return {"status": "registered"}
 
 
@@ -113,14 +131,8 @@ def register_user(payload: AuthRequest):
 def login_user(payload: AuthRequest):
     username = payload.username.strip()
     password = payload.password
-    users = load_json(USERS_FILE)
-    if username not in users:
-        return JSONResponse({"error": "Invalid credentials"}, status_code=401)
-
-    info = users[username]
-    expected = info.get("password")
-    salt = info.get("salt", "")
-    if not expected or hash_password(password, salt) != expected:
+    info = users_db.get(username)
+    if not info or not verify_password(password, info.get("password", "")):
         return JSONResponse({"error": "Invalid credentials"}, status_code=401)
 
     token = uuid.uuid4().hex
@@ -232,6 +244,24 @@ def get_doc(doc_id: str, user: str = Depends(get_current_user)):
         "doc_id": doc_id,
         "text": docs[doc_id]["text"]
     }
+
+
+@app.delete("/document/{doc_id}")
+def delete_doc(doc_id: str, user: str = Depends(get_current_user)):
+    paths = get_user_paths(user)
+    docs = load_json(paths["docs"])
+    if doc_id not in docs:
+        return JSONResponse({"error": "not found"}, status_code=404)
+
+    docs.pop(doc_id, None)
+    save_json(paths["docs"], docs)
+
+    anns = load_json(paths["anns"])
+    if doc_id in anns:
+        anns.pop(doc_id, None)
+        save_json(paths["anns"], anns)
+
+    return {"status": "document deleted", "doc_id": doc_id}
 
 # --------------------------------------------------------
 # Save annotation (with rank)
